@@ -32,7 +32,7 @@
 - (void)setModuleRegistry:(UMModuleRegistry *)moduleRegistry
 {
   _moduleRegistry = moduleRegistry;
-  [(id<EXBranchScopedModuleDelegate>)[_moduleRegistry getSingletonModuleForName:@"BranchManager"] branchModuleDidInit:self];
+  [(id<EXBranchScopedModuleDelegate>)[_moduleRegistry getModuleImplementingProtocol:@protocol(EXBranchScopedModuleDelegate)] branchModuleDidInit:self];
 }
 
 - (void)setBridge:(RCTBridge *)bridge
